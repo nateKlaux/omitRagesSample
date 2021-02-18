@@ -148,22 +148,25 @@
 </tr>
 </tbody>
 </table>
-<h3 id="basic-usage">Basic Usage</h3>
+<h3 id="request-syntax">Request Syntax</h3>
+<p>The following is the basic request syntax:</p>
 <pre><code class="language-python">def find_champion(name=None, role=None, origin=None):
   champion_suggestions = []
   for champ in champion_data:
     if name:
-      if champ['name'] == 'ahri':
+      if champ['name'] == name:
         return [champ]
     if role:
-      if champ['role'] != 'mid lane':
+      if champ['role'] != role:
         continue
     if origin:
-      if champ['origin'] != 'vastaya':
+      if champ['origin'] != origin:
         continue
     champion_suggestions.append(champ)
+  return champion_suggestions
 </code></pre>
-<h3 id="returns">Returns</h3>
+<h3 id="response-syntax">Response Syntax</h3>
+<p>The following list is a basic response syntax:</p>
 <pre><code class="language-python">{'name': 'ahri', 'role': 'mid lane', 'origin': 'vastaya'}
 </code></pre>
 <h2 id="otherendpoint1">otherEndpoint1</h2>
